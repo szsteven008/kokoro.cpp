@@ -272,7 +272,7 @@ int CKokoro::tts(const std::string& text, const std::string& style, std::vector<
             shape_speed.data(), shape_speed.size()));
 
     std::vector<const char *> input_names = { "input_ids", "style", "speed" };
-    std::vector<const char *> output_names = { "audio" };
+    std::vector<const char *> output_names = { "waveform" };
     
     Ort::RunOptions options;
     auto outputs = session->Run(options, 
@@ -287,6 +287,6 @@ int CKokoro::tts(const std::string& text, const std::string& style, std::vector<
     audio.resize(len);
     memcpy(audio.data(), outputs[0].GetTensorData<float *>(), len * sizeof(float));
 
-    post_process(audio);
+    //post_process(audio);
     return 0;
 }
