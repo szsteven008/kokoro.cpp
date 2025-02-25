@@ -39,7 +39,7 @@ class CKokoro {
         const int hop_size = 512;
         const int sample_rate = 24000;
         const float cutoff_freq = 4500;
-        const float attenuation = 0.1;
+        const float attenuation = 1.0;
         const float amplification = 2.0;
         const int cutoff_bin = static_cast<int>(cutoff_freq * frame_size / sample_rate);
 

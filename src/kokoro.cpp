@@ -287,6 +287,6 @@ int CKokoro::tts(const std::string& text, const std::string& style, std::vector<
     audio.resize(len);
     memcpy(audio.data(), outputs[0].GetTensorData<float *>(), len * sizeof(float));
 
-    //post_process(audio);
+    post_process(audio);
     return 0;
 }
