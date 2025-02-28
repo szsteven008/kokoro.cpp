@@ -283,7 +283,7 @@ int CKokoro::tts(const std::string& text, const std::string& style, std::vector<
                                                     output_names.size());
     if (!outputs.size()) return -1;
     std::vector<int64_t> shape_audio = outputs[0].GetTensorTypeAndShapeInfo().GetShape();
-    int len = shape_audio[1];
+    int len = shape_audio[0];
     audio.resize(len);
     memcpy(audio.data(), outputs[0].GetTensorData<float *>(), len * sizeof(float));
 
